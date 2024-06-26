@@ -19,20 +19,20 @@ const Message = ({ data }: { data: Imessage }) => {
       <div>
         <Image
           src={data.users?.avatar_url!}
-          width={50}
-          height={50}
-          className="rounded-full ring-2"
           alt={data.users?.display_name!}
+          width={40}
+          height={40}
+          className=" rounded-full ring-2"
         />
       </div>
       <div className="flex-1">
-        <div className="flex items-center gap-1 justify-between">
-          <div>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1">
             <h1 className="font-bold">{data.users?.display_name}</h1>
             <h1 className="text-sm text-gray-400">
               {new Date(data.created_at).toDateString()}
             </h1>
-            {data.is_edit && <h1 className="text-sm text-gray-400"> - Edited</h1>}
+            {data.is_edit && <h1 className="text-sm text-gray-400">edited</h1>}
           </div>
           {data.users?.id === user?.id && <MessageMenu data={data} />}
         </div>
