@@ -32,7 +32,9 @@ const Message = ({ data }: { data: Imessage }) => {
             <h1 className="text-sm text-gray-400">
               {new Date(data.created_at).toDateString()}
             </h1>
-            {data.is_edit && <h1 className="text-sm text-gray-400">edited</h1>}
+            {data.is_edit && (
+              <h1 className="text-sm text-gray-400 font-medium">- edited</h1>
+            )}
           </div>
           {data.users?.id === user?.id && <MessageMenu data={data} />}
         </div>
